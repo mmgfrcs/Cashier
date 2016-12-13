@@ -2,15 +2,20 @@
 #include<string.h>
 
 int main(){
+	char itemnames[3][40] = {"Burger", "Milkshake", "Burger + Milkshake"};
+	int price[3] = {15000, 10000, 22000}, stock[3] = {60, 100, 45};
+	int bought[3];
+	int subtotalbayar[3];
 
-	//Kode "burger" & 001 = Burger, Kode "milks" & 002 = Milkshake
-	//Bisa pakai string, angka, atau kombinasi
-	//DONE
-	char itemcode[10], transaksidone[10];
-	int burgerbought, milksbought, hargaburger = 0, hargamilks = 0, total, dibayarbrp, kembalian, price[2] = {15000, 10000}, stock[2] = {60, 100};
-	
-	total = 0;
-	printf("Barang apa yang dibeli: ");
+	int total = 0, dibayarbrp, kembalian;
+
+	printf("%-5s|%-25s|%-5s|%s","Kode","Nama Produk","Stok", "Harga");
+	for(int i = 0; i < 3; i++)
+	{
+		printf("\n%03d  |%-25s|%-5d|%d",i+1,itemnames[i],stock[i],price[i]);
+	}
+	char itemcode[10];
+	printf("\nMasukkan Kode Barang: ");
 	scanf("%s", &itemcode); fflush(stdin);
 
 	//Habis ngetik kode, minta jumlah yang dibeli, dgn jumlah tdk lebih besar dr stok; dan kalau ga ngisi (dienter), dianggap 1
