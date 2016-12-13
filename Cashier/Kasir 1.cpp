@@ -2,7 +2,8 @@
 #include<string.h>
 
 int main(){
-//Kode "burger" & 001 = Burger
+
+	//Kode "burger" & 001 = Burger
 	//Kode "milk" & 002 = Milkshake
 	//Kode "b+m" & 003 = Burger + Milk
 	//Bisa pakai string, angka, atau kombinasi
@@ -27,36 +28,40 @@ int main(){
 		char itemcode[10];
 		printf("\nMasukkan Kode Barang: ");
 		scanf("%s", &itemcode); fflush(stdin);
-		
+
 		//Habis ngetik kode, minta jumlah yang dibeli, dgn jumlah tdk lebih besar dr stok; dan kalau ga ngisi (dienter), dianggap 1
 		//Kondisi while buat variabel baru, dan hasil itemcodenya pakai if dgn do-while di dalamnya if
 		//DONE
 	
 		bool comp;
+		int tempbought;
 		if (strcmp(itemcode, "001") == 0){
 			do{
 				printf("Masukkan jumlah %s yang ingin dibeli [1-%d]: ",itemnames[0],stock[0]);
-				scanf("%d", &bought[0]); fflush(stdin);
-				if (bought[0]<1||bought[0]>stock[0]) printf("Jumlah %s yang dimasukkan salah. Jumlahnya harus diantara 1 dan %d\n", itemnames[0], stock[0]);
-			} while (bought[0]<1||bought[0]>stock[0]);
+				scanf("%d", &tempbought); fflush(stdin);
+				if (tempbought<1||tempbought>stock[0]) printf("Jumlah %s yang dimasukkan salah. Jumlahnya harus diantara 1 dan %d\n", itemnames[0], stock[0]);
+			} while (tempbought<1||tempbought>stock[0]);
+			bought[0] += tempbought;
 			stock[0] -= bought[0];
 			subtotalbayar[0] = bought[0] * price[0];
 		}
 		else if (strcmp(itemcode, "002") == 0){
 			do{
 				printf("Masukkan jumlah %s yang ingin dibeli [1-%d]: ",itemnames[1],stock[1]);
-				scanf("%d", &bought[1]); fflush(stdin);
-				if (bought[1]<1||bought[1]>stock[1]) printf("Jumlah %s yang dimasukkan salah. Jumlahnya harus diantara 1 dan %d\n", itemnames[1], stock[1]);
-			} while (bought[1]<1||bought[1]>stock[1]);
+				scanf("%d", &tempbought); fflush(stdin);
+				if (tempbought<1||tempbought>stock[1]) printf("Jumlah %s yang dimasukkan salah. Jumlahnya harus diantara 1 dan %d\n", itemnames[1], stock[1]);
+			} while (tempbought<1||tempbought>stock[1]);
+			bought[1] += tempbought;
 			stock[1] -= bought[1];
 			subtotalbayar[1] = bought[1] * price[1];
 		}
 		else if (strcmp(itemcode, "003") == 0){
 			do{
 				printf("Masukkan jumlah %s yang ingin dibeli [1-%d]: ",itemnames[2],stock[2]);
-				scanf("%d", &bought[2]); fflush(stdin);
-				if (bought[2]<1||bought[2]>stock[2]) printf("Jumlah %s yang dimasukkan salah. Jumlahnya harus diantara 1 dan %d\n", itemnames[2], stock[2]);
-			} while (bought[2]<1||bought[2]>stock[2]);
+				scanf("%d", &tempbought); fflush(stdin);
+				if (tempbought<1||tempbought>stock[2]) printf("Jumlah %s yang dimasukkan salah. Jumlahnya harus diantara 1 dan %d\n", itemnames[2], stock[2]);
+			} while (tempbought<1||tempbought>stock[2]);
+			bought[2] += tempbought;
 			stock[2] -= bought[2];
 			subtotalbayar[2] = bought[2] * price[2];
 		}
@@ -87,17 +92,14 @@ int main(){
 	{
 		fitos(total,tot);
 		printf("\n\nHarga Total: %s\nMasukkan jumlah uang yang dibayar pelanggan: ", tot);
-		scanf("%d",&dibayarbrp);
+		scanf("%d",&dibayarbrp); fflush(stdin);
 		if (dibayarbrp < total) printf("Uang yang dibayar tidak bisa lebih kecil dari harga total\n\n");
 	} while (dibayarbrp < total);
-
-	kembalian = total - dibayarbrp;
-	fitos(kembalian,tot);
-	printf("\n\nKembalian: %s\nTerima kasih", tot);
+	char kmb[12];
+	kembalian = dibayarbrp-total;
+	fitos(kembalian,kmb);
+	printf("\n\nKembalian: %s\nTerima kasih", kmb);
 		//Stlh ditunjukin total, input dibayar brp, trus dikasih tahu kembaliannya, message thx, lalu kalau dienter kembali ke step awal
-
-
-
 	getchar();
 	return 0;
 }
