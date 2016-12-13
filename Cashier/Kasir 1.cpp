@@ -3,7 +3,6 @@
 #include"fitos.h"
 
 int main(){
-
 	//Kode "burger" & 001 = Burger
 	//Kode "milk" & 002 = Milkshake
 	//Kode "b+m" & 003 = Burger + Milk
@@ -15,7 +14,7 @@ int main(){
 	int subtotalbayar[3] = {};
 
 	int total = 0, dibayarbrp, kembalian;
-	char transaksidone[10];
+	char transaksidone;
 	do
 	{
 		printf("%-5s|%-25s|%-5s|%-8s|%-8s|%s","Kode","Nama Produk","Stok", "Harga", "Dibeli", "Subtotal");
@@ -72,10 +71,12 @@ int main(){
 		//Ketik apa gitu buat konfirmasi transaksi selesai, apanya terserah aku
 		//Stlh selesai, nunjukin total sama ttn, diskon, dsbnya
 		
-		printf("Apakah transaksi sudah selesai? ");
+		printf("Apakah transaksi sudah selesai? (Y/N");
 		scanf("%s", &transaksidone); fflush(stdin);
+		if(transaksidone == 'n' || transaksidone == 'N') break;
 		printf("\n");
-	} while (strcmp(transaksidone, "sudah") != 0);
+	} 
+	while (true);
 
 	//Hitung total
 	
