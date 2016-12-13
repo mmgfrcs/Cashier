@@ -10,6 +10,7 @@ int main(){
 	int burgerbought, milksbought, hargaburger = 0, hargamilks = 0, total, dibayarbrp, kembalian, price[2] = {15000, 10000}, stock[2] = {60, 100};
 	
 	total = 0;
+	printf("Barang yang Tersedia: Burger dan Milkshake");
 	printf("Barang apa yang dibeli: ");
 	scanf("%s", &itemcode); fflush(stdin);
 
@@ -69,12 +70,18 @@ int main(){
 			hargamilks += milksbought * price[1];
 			total += hargaburger + hargamilks;
 			printf("\nHarga Total: %d", total);
+			
+			printf("\nDibayar Berapa: ");
+			scanf("%d", &dibayarbrp); fflush(stdin);
+			kembalian = dibayarbrp - total;
+			printf("\nKembalian: %d", kembalian);
 		}
 	}
 
+	//Harganya yang ini SANGAT, SANGAT, SANGAT fluktuatif
 	else if (strcmp(transaksidone, "sudah") == 0){
-		hargaburger += burgerbought * price[0] + 4000;
-		hargamilks += milksbought * price[1] + 8000;
+		hargaburger += burgerbought * price[0];
+		hargamilks += milksbought * price[1] + 12000;
 		total += hargaburger + hargamilks;
 		printf("\nHarga Total: %d", total);
 	}
