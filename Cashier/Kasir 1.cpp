@@ -22,17 +22,17 @@ int main(){
 	//Kondisi while buat variabel baru, dan hasil itemcodenya pakai if dgn do-while di dalamnya if
 	//DONE
 	bool comp;
-	if (strcmp(itemcode, "burger") == 0){
+	if (strcmp(itemcode, "001") == 0){
 		do{
-			printf("\nBerapa banyak burger yang dibeli [1-60]: ");
-			scanf("%d", &burgerbought); fflush(stdin);
-		} while (burgerbought<1||burgerbought>60);
+			printf("\nMasukkan jumlah Burger yang ingin dibeli [1-%d]: ",stock[0]);
+			scanf("%d", &bought[0]); fflush(stdin);
+		} while (bought[0]<1||bought[0]>stock[0]);
 	}
-	else if (strcmp(itemcode, "milks") == 0){
+	else if (strcmp(itemcode, "002") == 0){
 		do{
-			printf("\nBerapa banyak milkshake yang dibeli [1-100]: ");
-			scanf("%d", &milksbought); fflush(stdin);
-		} while (milksbought<1||milksbought>100);
+			printf("Masukkan jumlah Milkshake yang ingin dibeli [1-%d]: ",stock[1]);
+			scanf("%d", &bought[1]); fflush(stdin);
+		} while (bought[1]<1||bought[1]>stock[1]);
 	}
 
 	//Wrong type of code
